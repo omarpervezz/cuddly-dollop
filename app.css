@@ -1,0 +1,95 @@
+/* Reset CSS */
+/* ============================================== */
+
+/* Box sizing reset */
+/* ---------------------------------------------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body element reset */
+/* ---------------------------------------------- */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+}
+
+/* Headings reset */
+/* ---------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: inherit;
+}
+
+/* List elements reset */
+/* ---------------------------------------------- */
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Anchor reset */
+/* ---------------------------------------------- */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Forms reset */
+/* ---------------------------------------------- */
+input, textarea, button, select {
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background: none;
+}
+
+/* Button reset */
+/* ---------------------------------------------- */
+button {
+  cursor: pointer;
+}
+
+/* Images reset */
+/* ---------------------------------------------- */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Reset for specific elements (optional) */
+/* ---------------------------------------------- */
+/* Add any additional element-specific resets here */
+
+/* ============================================== */
+
+/* Additional styles and your custom CSS can be added below */
+
+ /* Container styles */
+ .container {
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
+    height: 100vh; /* Adjust to your needs */
+  }
+
+  /* Content styles */
+  .content {
+    text-align: center;
+  }
+   /* Heading styles */
+   h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
