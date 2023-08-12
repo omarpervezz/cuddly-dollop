@@ -118,7 +118,7 @@ img {
     font-weight: bold;
     color: #4285f4;
   }
-  #drinkButton {
+  .button {
     padding: 10px 20px;
     font-size: 16px;
     background-color: #4285f4;
@@ -128,10 +128,15 @@ img {
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
-
-  #drinkButton:hover {
+.reset{
+  background-color: #e12727;
+}
+ .button:hover {
     background-color: #3367d6;
   }
+  .reset:hover{
+  background-color: #a54242;
+}
 </style>
 </head>
 <body>
@@ -140,36 +145,39 @@ img {
       <h1 id="waterTarget">Stay Hydrated</h1>
       <p>Remember to drink your <strong><span id="remainingWater">14</span> glasses of water</strong> today for a healthier you.</p>
       <input type="number" id="waterInput" min="0" max="14" value="0">
-      <button id="drinkButton">Drink</button>
+      <button class="button" id="drinkButton">Drink</button>
+      <button class="button reset" id="resetButton">Reset</button>
     </div>
   </div>
 
   <script>
-    // Retrieve data from localStorage
-    let glassesRemaining = localStorage.getItem("glassesRemaining");
-    glassesRemaining = glassesRemaining !== null ? parseInt(glassesRemaining) : 14;
-
+        let glassesRemaining;
     // Initialize DOM elements
     const waterTarget = document.getElementById("waterTarget");
     const remainingWater = document.getElementById("remainingWater");
     const waterInput = document.getElementById("waterInput");
     const drinkButton = document.getElementById("drinkButton");
+    const resetButton = document.getElementById("resetButton");
 
     function updateWaterDisplay() {
+        // Retrieve data from localStorage
+  glassesRemaining = localStorage.getItem("glassesRemaining");
+    glassesRemaining = glassesRemaining !== null ? parseInt(glassesRemaining) : 14;
       remainingWater.textContent = glassesRemaining;
       if (glassesRemaining <= 0) {
         glassesRemaining = 14; // Reset to 14 glasses
         localStorage.setItem("glassesRemaining", glassesRemaining); // Save reset value to localStorage
         waterTarget.textContent = "You drink the whole glasses 👏";
-        updateWaterDisplay()
         drinkButton.disabled = false;
       } else if (glassesRemaining === 14) {
+        waterTarget.textContent = "Stay Hydrated";
         drinkButton.disabled = false;
       } else {
         waterTarget.textContent = "Stay Hydrated";
         drinkButton.disabled = false;
       }
     }
+
 
     drinkButton.addEventListener("click", () => {
       const glassesDrank = parseInt(waterInput.value);
@@ -184,7 +192,19 @@ img {
       }
     });
 
+
+resetButton.addEventListener('click', () => {
+  if(remainingWater.innerText != ""){
+    alert('Would you like to reset remaining water');
+    localStorage.setItem('glassesRemaining', 14);
     updateWaterDisplay();
+    waterInput.value = 0;
+  }
+  
+})
+
+    updateWaterDisplay();
+  
   </script>
 </body>
 </html>
